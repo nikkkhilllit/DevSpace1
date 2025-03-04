@@ -13,7 +13,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', { username, email, password });
+      const response = await axios.post('https://devspacebackend-1vv6.onrender.com/auth/register', { username, email, password });
       alert(response.data.message);
       // Optionally redirect the user to the login page after successful registration
       navigate('/login');
