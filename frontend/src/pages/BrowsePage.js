@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import PopularProjects from '../components/PopularProjects';
 import AllUsers from './AllUsers';
+import { ThreeDots } from 'react-loader-spinner';
 
 const BrowsePage = () => {
   // 'projects' tab is active by default

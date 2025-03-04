@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Rating from './Rating';
+import { ThreeDots } from 'react-loader-spinner';
 
 const RatingPage = () => {
   const { taskId } = useParams();
@@ -28,9 +29,13 @@ const RatingPage = () => {
   }, [taskId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center bg-gray-900 items-center h-screen">
+        <ThreeDots color="#6366f1" height={80} width={80} />
+      </div>
+    );
   }
-
+  
   if (error) {
     return <div className="text-red-500">{error}</div>;
   }
