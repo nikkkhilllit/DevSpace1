@@ -11,7 +11,7 @@ const app = express();
 
 // Enable CORS
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://devspacecollab.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
@@ -32,7 +32,7 @@ app.use('/projects', projectRoutes);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000', // Your frontend URL
+    origin: 'https://devspacecollab.onrender.com', // Your frontend URL
     methods: ['GET', 'POST'],
   },
 });
