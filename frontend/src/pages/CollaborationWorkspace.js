@@ -12,7 +12,7 @@ import { Edit, Trash } from 'lucide-react'; // Icons for update and delete actio
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://devspacebackend-1vv6.onrender.com');
 
 const CollaborationWorkspace = () => {
   const { taskId } = useParams();
@@ -34,7 +34,7 @@ const CollaborationWorkspace = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get('http://localhost:5000/auth/user', {
+        const response = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/user', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsername(response.data.user.username);
@@ -49,7 +49,7 @@ const CollaborationWorkspace = () => {
 
     const fetchCodeFiles = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/projects/${taskId}/codefiles`, {
+        const response = await axios.get(`https://devspacebackend-1vv6.onrender.com/projects/${taskId}/codefiles`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
         });
         setCodeFiles(response.data);
@@ -131,7 +131,7 @@ const CollaborationWorkspace = () => {
   
     try {
       const response = await axios.post(
-        `http://localhost:5000/projects/${taskId}/codefiles`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/codefiles`,
         { fileName },
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
@@ -164,13 +164,13 @@ const CollaborationWorkspace = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/projects/${taskId}/codefiles/${selectedFile}`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/codefiles/${selectedFile}`,
         { content: code },
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
       alert('Code saved successfully!');
       const streakResponse = await axios.post(
-        `http://localhost:5000/auth/update-streak`,
+        `https://devspacebackend-1vv6.onrender.com/auth/update-streak`,
         {}, // No body is required unless you wish to send extra data.
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
@@ -188,7 +188,7 @@ const CollaborationWorkspace = () => {
   
     try {
       const response = await axios.put(
-        `http://localhost:5000/projects/${taskId}/codefiles/${fileId}/rename`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/codefiles/${fileId}/rename`,
         { newName },
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
@@ -221,7 +221,7 @@ const CollaborationWorkspace = () => {
   
     try {
       await axios.delete(
-        `http://localhost:5000/projects/${taskId}/codefiles/${fileId}`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/codefiles/${fileId}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
   
@@ -317,14 +317,14 @@ useEffect(() => {
 
     try {
       // Get current user
-      const userResponse = await axios.get('http://localhost:5000/auth/user', {
+      const userResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/user', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const userId = userResponse.data.user._id;
 
       // Get project containing the task
       const projectResponse = await axios.get(
-        `http://localhost:5000/projects/task/${taskId}`,
+        `https://devspacebackend-1vv6.onrender.com/projects/task/${taskId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

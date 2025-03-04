@@ -12,7 +12,7 @@ const PopularProjects = () => {
       const token = localStorage.getItem('authToken'); // Get token from localStorage
 
       try {
-        const response = await axios.get('http://localhost:5000/projects/popular', {
+        const response = await axios.get('https://devspacebackend-1vv6.onrender.com/projects/popular', {
           headers: { Authorization: `Bearer ${token}` },
         });
         // The response is expected to have a "projects" array.

@@ -30,7 +30,7 @@ const ProjectDetails = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/projects/${id}`, {
+        const response = await axios.get(`https://devspacebackend-1vv6.onrender.com/projects/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProject(response.data);
@@ -51,7 +51,7 @@ const ProjectDetails = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/auth/user', {
+        const response = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/user', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCurrentUser(response.data.user);
@@ -97,7 +97,7 @@ const ProjectDetails = () => {
   const handleAddTask = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/projects/${id}/tasks`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${id}/tasks`,
         {
           ...newTask,
           codeFiles: [] // For now, keep codeFiles empty
@@ -120,7 +120,7 @@ const ProjectDetails = () => {
   const handleApplyForTask = async (taskId) => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/projects/${taskId}/apply`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/apply`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -145,7 +145,7 @@ const ProjectDetails = () => {
   const handleLike = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/projects/${id}/like`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${id}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

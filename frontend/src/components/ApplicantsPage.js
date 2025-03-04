@@ -13,7 +13,7 @@ const ApplicantsPage = () => {
     const fetchApplicants = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/projects/${taskId}/applicants`,
+          `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/applicants`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`, // Include the auth token
@@ -32,7 +32,7 @@ const ApplicantsPage = () => {
   const acceptApplicant = async (userId) => {
     try {
       await axios.post(
-        `http://localhost:5000/projects/${taskId}/collaborators/${userId}`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/collaborators/${userId}`,
         {},
         {
           headers: {

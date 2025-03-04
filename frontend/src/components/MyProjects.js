@@ -13,7 +13,7 @@ const MyProjects = () => {
       const token = localStorage.getItem('authToken'); // Get token from localStorage
 
       try {
-        const response = await axios.get('http://localhost:5000/projects/myprojects', {
+        const response = await axios.get('https://devspacebackend-1vv6.onrender.com/projects/myprojects', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProjects(response.data.projects);

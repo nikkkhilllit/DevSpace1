@@ -7,7 +7,7 @@ const Rating = ({ taskId, collaboratorId, collaboratorUsername }) => {
   const submitRating = async () => {
     try {
       await axios.post(
-        'http://localhost:5000/projects/rate',
+        'https://devspacebackend-1vv6.onrender.com/projects/rate',
         {
           taskId,
           collaboratorId,

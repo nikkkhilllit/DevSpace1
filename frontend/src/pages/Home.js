@@ -41,14 +41,14 @@ const Home = () => {
       let response;
       if (searchType === 'projects') {
         response = await axios.post(
-          'http://localhost:5000/projects/search',
+          'https://devspacebackend-1vv6.onrender.com/projects/search',
           { query: searchQuery },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setResults(response.data.projects);
       } else {
         response = await axios.post(
-          'http://localhost:5000/auth/search-users',
+          'https://devspacebackend-1vv6.onrender.com/auth/search-users',
           { query: searchQuery },
           { headers: { Authorization: `Bearer ${token}` } }
         );

@@ -37,23 +37,23 @@ const Dashboard = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         // Get stats (e.g., averageRating) from /auth/user-stats
-        const statsResponse = await axios.get('http://localhost:5000/auth/user-stats', { headers });
+        const statsResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/user-stats', { headers });
         setStats(statsResponse.data);
 
         // Get user details from /auth/user
-        const userResponse = await axios.get('http://localhost:5000/auth/user', { headers });
+        const userResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/user', { headers });
         setUserData(userResponse.data.user);
 
         // Get completed task count from /auth/completed-task-count
-        const completedResponse = await axios.get('http://localhost:5000/auth/completed-task-count', { headers });
+        const completedResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/completed-task-count', { headers });
         setCompletedTaskCount(completedResponse.data.completedTasksCount);
 
         // Get collaborator task count from /auth/collaborator-task-count
-        const collabResponse = await axios.get('http://localhost:5000/auth/collaborator-task-count', { headers });
+        const collabResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/collaborator-task-count', { headers });
         setCollaboratorTaskCount(collabResponse.data.collaboratorTaskCount);
 
         // Get on-time rate for tasks where the user is a collaborator
-        const collabOnTimeResponse = await axios.get('http://localhost:5000/auth/collaborator-on-time-rate', { headers });
+        const collabOnTimeResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/collaborator-on-time-rate', { headers });
         setCollaboratorOnTimeRate(collabOnTimeResponse.data.onTimeRate);
 
         console.log('Stats response:', statsResponse.data);
@@ -99,7 +99,7 @@ const Dashboard = () => {
       // Call the backend endpoint to add a new skill.
       // The backend should be updated to accept a skill object: { name, percentage }
       const response = await axios.post(
-        'http://localhost:5000/auth/add-skill',
+        'https://devspacebackend-1vv6.onrender.com/auth/add-skill',
         { skill: { name: newSkillName.trim(), percentage } },
         { headers }
       );

@@ -13,7 +13,7 @@ const RatingPage = () => {
     const fetchCollaborators = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        const response = await axios.get(`http://localhost:5000/projects/${taskId}/collaborators`, {
+        const response = await axios.get(`https://devspacebackend-1vv6.onrender.com/projects/${taskId}/collaborators`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCollaborators(response.data.collaborators);

@@ -13,7 +13,7 @@ const AllUsers = () => {
       const token = localStorage.getItem('authToken'); // Get token from localStorage
       try {
         // Adjust the URL if needed.
-        const response = await axios.get('http://localhost:5000/auth/users', {
+        const response = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(response.data);

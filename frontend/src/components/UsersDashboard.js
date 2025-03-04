@@ -40,19 +40,19 @@ const UsersDashboard = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         // Fetch data for the user whose dashboard is being viewed using the id param.
-        const statsResponse = await axios.get(`http://localhost:5000/auth/user-stats/${id}`, { headers });
+        const statsResponse = await axios.get(`https://devspacebackend-1vv6.onrender.com/auth/user-stats/${id}`, { headers });
         setStats(statsResponse.data);
 
-        const userResponse = await axios.get(`http://localhost:5000/auth/user/${id}`, { headers });
+        const userResponse = await axios.get(`https://devspacebackend-1vv6.onrender.com/auth/user/${id}`, { headers });
         setUserData(userResponse.data.user);
 
-        const completedResponse = await axios.get(`http://localhost:5000/auth/completed-task-count/${id}`, { headers });
+        const completedResponse = await axios.get(`https://devspacebackend-1vv6.onrender.com/auth/completed-task-count/${id}`, { headers });
         setCompletedTaskCount(completedResponse.data.completedTasksCount);
 
-        const collabResponse = await axios.get(`http://localhost:5000/auth/collaborator-task-count/${id}`, { headers });
+        const collabResponse = await axios.get(`https://devspacebackend-1vv6.onrender.com/auth/collaborator-task-count/${id}`, { headers });
         setCollaboratorTaskCount(collabResponse.data.collaboratorTaskCount);
 
-        const collabOnTimeResponse = await axios.get(`http://localhost:5000/auth/collaborator-on-time-rate/${id}`, { headers });
+        const collabOnTimeResponse = await axios.get(`https://devspacebackend-1vv6.onrender.com/auth/collaborator-on-time-rate/${id}`, { headers });
         setCollaboratorOnTimeRate(collabOnTimeResponse.data.onTimeRate);
 
         console.log('Stats response:', statsResponse.data);
@@ -96,7 +96,7 @@ const UsersDashboard = () => {
       // Assuming the endpoint allows adding a skill for any user by ID.
       // You might need to adjust the endpoint if only self-editing is allowed.
       const response = await axios.post(
-        `http://localhost:5000/auth/add-skill/${id}`,
+        `https://devspacebackend-1vv6.onrender.com/auth/add-skill/${id}`,
         { skill: { name: newSkillName.trim(), percentage } },
         { headers }
       );

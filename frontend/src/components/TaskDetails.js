@@ -16,12 +16,12 @@ const TaskDetails = () => {
       const token = localStorage.getItem('authToken');
       try {
         // Fetch task data
-        const taskResponse = await axios.get(`http://localhost:5000/projects/gettask/${taskId}`, {
+        const taskResponse = await axios.get(`https://devspacebackend-1vv6.onrender.com/projects/gettask/${taskId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
         // Fetch current user data
-        const userResponse = await axios.get('http://localhost:5000/auth/user', {
+        const userResponse = await axios.get('https://devspacebackend-1vv6.onrender.com/auth/user', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -41,14 +41,14 @@ const TaskDetails = () => {
     try {
       // POST request (correct)
       await axios.post(
-        `http://localhost:5000/projects/${taskId}/complete`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/complete`,
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
   
       // GET request (FIX THIS)
       const response = await axios.get(
-        `http://localhost:5000/projects/gettask/${taskId}`, // Add full backend URL
+        `https://devspacebackend-1vv6.onrender.com/projects/gettask/${taskId}`, // Add full backend URL
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
       
@@ -61,12 +61,12 @@ const TaskDetails = () => {
   const handleFinalCompletion = async () => {
     try {
       await axios.post(
-        `http://localhost:5000/projects/${taskId}/final-complete`,
+        `https://devspacebackend-1vv6.onrender.com/projects/${taskId}/final-complete`,
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` } }
       );
       // Refresh task data after update
-      const response = await axios.get(`http://localhost:5000/projects/gettask/${taskId}`, {
+      const response = await axios.get(`https://devspacebackend-1vv6.onrender.com/projects/gettask/${taskId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
       });
       setTask(response.data);
