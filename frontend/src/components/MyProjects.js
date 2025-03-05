@@ -62,7 +62,7 @@ const MyProjects = () => {
               <span className="font-medium text-gray-400">Description:</span> {project.description}
             </p>
             <p className="text-gray-300 mb-2">
-              <span className="font-medium text-gray-400">Budget:</span> ${project.budget}
+              <span className="font-medium text-gray-400">Budget:</span> ₹{project.budget}
             </p>
             <p className="text-gray-300 mb-2">
               <span className="font-medium text-gray-400">Deadline:</span> {new Date(project.deadline).toLocaleDateString()}
