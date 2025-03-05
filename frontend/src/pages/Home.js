@@ -160,7 +160,7 @@ const Home = () => {
                         </p>
                         <p className="text-gray-300 mb-2">
                           <span className="font-medium text-gray-400">Budget:</span>{' '}
-                          ${project.budget}
+                          ₹{project.budget}
                         </p>
                         <p className="text-gray-300 mb-2">
                           <span className="font-medium text-gray-400">Deadline:</span>{' '}
